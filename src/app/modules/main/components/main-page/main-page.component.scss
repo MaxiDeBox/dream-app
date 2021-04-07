@@ -1,0 +1,24 @@
+/* ШАПКА */
+.header {
+  padding: 15px 15px;
+}
+/* КОНЕЦ ШАПКА */
+
+/* ТЕЛО */
+.body {
+  padding: 15px 15px;
+}
+
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+/* КОНЕЦ ТЕЛА */
+
+/* ПОДВАЛ */
+.footer {
+  padding: 15px 15px;
+}
+/* КОНЕЦ ПОДВАЛ */
+

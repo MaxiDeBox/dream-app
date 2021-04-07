@@ -1,0 +1,23 @@
+@import "../fonts/Gilroy/stylesheet";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+body {
+  width: 100%;
+  color: rgba(255,255,255,.8);
+  background-color: #1b1c1d;
+  font: 16px/22px "Gilroy", sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
