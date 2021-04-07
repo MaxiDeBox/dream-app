@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../../../../core/backend/gallery/gallery.service';
+import { GalleryInterface } from '../../../../core/backend/gallery/gallery.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -8,11 +9,24 @@ import { GalleryService } from '../../../../core/backend/gallery/gallery.service
 })
 export class MainPageComponent implements OnInit {
 
+  /**
+   * Коллекиця для картинок
+   */
+  public collection: GalleryInterface[] = [] || null;
+
   constructor(private gallerySrv: GalleryService) { }
 
   ngOnInit(): void {
-    this.gallerySrv.getImagesList().subscribe((res) => {
-      console.log(res);
-    });
+    this.init();
+  }
+
+  async init() {
+    try {
+      const response: any = await this.gallerySrv.getImagesList();
+
+      this.collection = response.galleryImages;
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

@@ -9,11 +9,57 @@
   padding: 15px 15px;
 }
 
-  .grid {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+  /* Галлерея */
+  .gallery {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 50px;
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 6px;
+
+    .gallery__title {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .gallery__body {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+
+      //column-count: 4;
+      column-gap: 10px;
+      -webkit-column-width: 18px;
+      -moz-column-width: 180px;
+      column-width: 180px;
+    }
+
+    .gallery__item {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: 1fr auto;
+      margin-bottom: 10px;
+      break-inside: avoid;
+      border-radius: 6px;
+      overflow: hidden;
+
+      cursor: pointer;
+
+      img {
+        max-width: 100%;
+        display: block;
+        grid-row: 1 / -1;
+        grid-column: 1;
+        transition: transform .6s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.2);
+      }
+    }
   }
+  /* Конец Галлерея */
 /* КОНЕЦ ТЕЛА */
 
 /* ПОДВАЛ */
