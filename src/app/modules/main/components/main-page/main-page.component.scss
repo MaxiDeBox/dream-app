@@ -7,6 +7,7 @@
 /* ТЕЛО */
 .body {
   padding: 15px 15px;
+  position: relative;
 }
 
   /* Галлерея */
@@ -27,36 +28,147 @@
       max-width: 860px;
       margin: 0 auto;
 
-      //column-count: 4;
-      column-gap: 10px;
-      -webkit-column-width: 18px;
-      -moz-column-width: 180px;
-      column-width: 180px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,  minmax(80px, 1fr));
+      grid-template-rows: 150px;
+      grid-auto-rows: 150px;
+      grid-gap: 1vw;
+      grid-auto-flow: dense;
+      justify-content: stretch;
+      align-items: stretch;
+
+      .gallery__item {
+        position: relative;
+        cursor: pointer;
+        width: inherit;
+        height: inherit;
+        overflow: hidden;
+        border-radius: 6px;
+
+        .gallery__image {
+          max-width: 100%;
+          width: 100%;
+          height: 100%;
+          max-height: 150px;
+          object-fit: cover;
+          transition: transform .6s ease;
+          border-radius: 6px;
+        }
+
+        .gallery__item__actions {
+          position: absolute;
+          top: 0px;
+          right: 5px;
+          display: none;
+        }
+
+        .gallery__item__actions__menu_icon {
+          display: block;
+          width: 24px;
+          height: 24px;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          background-image: url(/assets/images/icons/icon-menu.svg);
+        }
+
+        .gallery__item__actions__menu_delete {
+          position: absolute;
+          top: 20px;
+          right: 0;
+        }
+
+        &:hover {
+          .gallery__item__actions {
+            display: block;
+          }
+
+          .gallery__image {
+            filter: opacity(50%);
+          }
+        }
+      }
+
+      .gallery__item--horizontal {
+        grid-column: auto / span 2;
+      }
+
+      .gallery__item--horizontal-lg {
+        grid-column: auto / span 3;
+      }
+
+      .gallery__item--vertical {
+      }
+
+      .gallery__item--kvadrat {
+        grid-column: auto / span 2;
+
+        //.gallery__image {
+        //  max-width: 150px;
+        //}
+      }
     }
 
-    .gallery__item {
-      margin: 0;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-template-rows: 1fr auto;
-      margin-bottom: 10px;
-      break-inside: avoid;
-      border-radius: 6px;
-      overflow: hidden;
+    .gallery__footer {
+      padding: 15px 0;
+      
+      .gallery__annotation {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
 
-      cursor: pointer;
+    .gallery__dropzone {
+      min-height: 100px;
+      width: 100%;
+      border: 1px dashed rgb(255 255 255 / 10%);
+      background-color: rgb(255 255 255 / 2%);
+      margin-bottom: 20px;
+    }
 
-      img {
-        max-width: 100%;
-        display: block;
-        grid-row: 1 / -1;
-        grid-column: 1;
-        transition: transform .6s ease;
+    .gallery__dropzone__text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: inherit;
+      min-height: inherit;
+    }
+
+    .gallery__dropzone_icon {
+      margin-right: 15px;
+      display: block;
+      width: 48px;
+      height: 48px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-image: url(/assets/images/icons/icon-picture.svg);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .gallery {
+      .gallery__body {
+        grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+
+        .gallery__item--horizontal {
+          grid-column: span 2;
+        }
+
+        .gallery__item--horizontal-lg {
+          grid-column: span 2;
+        }
+
+        .gallery__item--vertical {
+          grid-column: span 2;
+        }
+
+        .gallery__item--kvadrat {
+          grid-column: span 2;
+        }
+
       }
 
-      &:hover img {
-        transform: scale(1.2);
-      }
     }
   }
   /* Конец Галлерея */

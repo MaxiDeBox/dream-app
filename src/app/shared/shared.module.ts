@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 const declarations: any[] = [
-
+  DragDropDirective
 ];
 
 @NgModule({
   declarations: [
-    ...declarations
+    ...declarations,
+
   ],
   providers: [],
   imports: [
     CommonModule,
-    ...declarations
   ],
   exports: [
     ...declarations
