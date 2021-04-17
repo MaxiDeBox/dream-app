@@ -1,6 +1,11 @@
 # DreamApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+Данный проект был ссгенерирован на [Angular CLI](https://github.com/angular/angular-cli) версии 11.2.1.
+
+## Установка и запуск
+1. Склонировать проект к себе;
+2. Запустить установку `npm i`, дождаться завершения;
+3. Запуск проекта `npm run start`, открыть в брайзере `http://localhost:4200/`.
 
 ## Development server
 
