@@ -1,0 +1,51 @@
+<section class="wrapper">
+  <header class="header">
+    <h1 routerLink='/'>Dream App</h1>
+  </header>
+
+  <main class="body">
+    <article class="gallery">
+      <h2 class="gallery__title">Галлерея</h2>
+
+      <div class="gallery__dropzone" appDragDrop (files)="filesDropped($event)">
+        <div class="gallery__dropzone__text">
+          <span class="gallery__dropzone_icon"></span> Для загрузки, перетащи сюда свои изображения
+        </div>
+      </div>
+
+      <ng-container *ngIf="collection">
+        <div class="gallery__body">
+          <ng-container *ngFor="let image of collection; let idx = index;">
+            <div class="gallery__item item_{{idx}}"
+                 [class.gallery__item--horizontal]="image.width > image.height"
+                 [class.gallery__item--horizontal-lg]="(image.width/2) > image.height"
+                 [class.gallery__item--vertical]="image.width < image.height"
+                 [class.gallery__item--kvadrat]="image.width === image.height">
+              <img [src]="image.url" class="gallery__image" />
+
+              <div class="gallery__item__actions">
+                <span class="gallery__item__actions__menu_icon"
+                      [class.active]="idx === activeId"
+                      (click)="toogleMenu($event, idx)"></span>
+                <div *ngIf="idx === activeId"
+                     class="gallery__item__actions__menu_delete">
+                  <span (click)="removeImage(idx)">Удалить</span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <div class="gallery__footer">
+        <div class="gallery__annotation">
+          <p><strong>Stack:</strong> Angular, SCSS</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+
+  </footer>
+</section>

@@ -10,6 +10,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   display: block;
 }
 
+h1, h2, h3, a, input, textarea, button {
+  outline: none;
+
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    outline: none;
+  }
+}
+
 body {
   width: 100%;
   color: rgba(255,255,255,.8);
