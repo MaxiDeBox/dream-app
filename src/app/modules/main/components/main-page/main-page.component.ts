@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GalleryService } from '../../../../core/backend/gallery/gallery.service';
-import { GalleryInterface } from '../../../../core/backend/gallery/gallery.interface';
-import { FileHandle } from '../../../../shared/directives/drag-drop.directive';
+import { ExampleService } from '../../../../core/backend/example/example.service';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-page',
@@ -10,69 +10,49 @@ import { FileHandle } from '../../../../shared/directives/drag-drop.directive';
 })
 export class MainPageComponent implements OnInit {
 
-  /**
-   * Коллекиця для картинок
-   */
-  collection: GalleryInterface[] = [] || null;
-  files: any[] = [];
+  public users: any[] = [];
+  public isShow = false;
 
-  activeId!: number;
+  public userAsync: any;
 
-  constructor(private gallerySrv: GalleryService) { }
+  constructor(private exapmleSrv: ExampleService) { }
 
   ngOnInit(): void {
-    this.init();
-  }
+    this.exapmleSrv.getUsersList().subscribe((response) => {
+      this.users = response;
+    }, (error) => {
+      console.error(error);
+    });
 
-  async init() {
-    try {
-      const response: any = await this.gallerySrv.getImagesList();
-      this.collection = response.galleryImages;
-    } catch (e) {
-      console.error(e);
-    }
-  }
+    this.userAsync = this.exapmleSrv.getUsersList();
 
-  filesDropped(event: FileHandle[]): void {
-    this.files = event;
 
-    if (this.files.length > 0) {
-      this.files.forEach((file) => {
-        const img = new Image();
-        const p = new Promise<void>((resolve) => {
-          img.onload = () => {
-            const {height: h, width: w} = img;
+    const data = of([
+      {
+        brand: 'porsche',
+        model: '911'
+      },
+      {
+        brand: 'porsche',
+        model: 'macan'
+      },
+      {
+        brand: 'ferarri',
+        model: '458'
+      },
+      {
+        brand: 'lamborghini',
+        model: 'urus'
+      }
+    ]);
 
-            this.collection.push({
-              width: w,
-              height: h,
-              url: file.url
-            });
-
-            resolve();
-          };
-
-          img.src = file.url.changingThisBreaksApplicationSecurity;
-        });
-      });
-    }
-  }
-
-  /**
-   * Показать/скрыть мень уделения
-   */
-  toogleMenu(event: any, id: number): void {
-    this.activeId = id;
-    const isOpen = event.target.classList.contains('active');
-    isOpen ? this.activeId = -1 : this.activeId = id;
-  }
-
-  /**
-   * В текущей реализации удаляется из дома. Будь полноценный бэк,
-   * отправлял бы запрос на удаление и обновлял бы коллекцию.
-   */
-  removeImage(id: number): void {
-    const item: any = document.querySelector(`.item_${id}`);
-    item.remove();
+    data.pipe(
+      map((cars: any) => cars.map((car: any) => {
+        return { brand: car.brand, model: car.model, color: '#ffffff' };
+      }))
+    ).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
+

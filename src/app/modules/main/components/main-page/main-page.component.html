@@ -5,6 +5,43 @@
 
   <main class="body">
     <a routerLink='/gallery'>Галлерея</a>
+
+
+
+    <!--TODO example удалить-->
+    <div [ngStyle]="{'margin-top.px': 20}"
+         [ngClass]="'example'">
+      <div *ngFor="let user of users">
+        <div>
+          <span appExapmleBold>{{user.name}}</span>
+        </div>
+      </div>
+
+
+      <div *ngIf="isShow; else bye">
+        Привет
+      </div>
+      <ng-template #bye>
+        <div>
+          Пока
+        </div>
+      </ng-template>
+
+      <div [ngSwitch]="8">
+        <ng-template ngSwitchCase="5">{{ 5 }}</ng-template>
+        <ng-template ngSwitchCase="10">{{ 10 }}</ng-template>
+        <ng-template ngSwitchDefault>{{ 100 }}</ng-template>
+      </div>
+
+      <hr />
+
+      <ul class="">
+        <li *ngFor="let u2 of userAsync | async">
+          {{u2.name}}
+        </li>
+      </ul>
+    </div>
+    <!--TODO example end-->
   </main>
 
   <footer>
