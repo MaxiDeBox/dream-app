@@ -13,6 +13,12 @@ const routes: Routes = [
     loadChildren: () => {
       return import('./modules/gallery/gallery.module').then((module) => module.GalleryModule);
     }
+  },
+  {
+    path: 'todo-ngrx',
+    loadChildren: () => {
+      return import('./modules/todo-ngrx/todo-ngrx.module').then((module) => module.TodoNgrxModule);
+    }
   }
 ];
 

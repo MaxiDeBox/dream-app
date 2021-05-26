@@ -1,0 +1,27 @@
+<div class="btns">
+  <button class="btn"
+          (click)="increment()">
+    +1
+  </button>
+
+  <button class="btn"
+          (click)="decrement()"
+          [disabled]="cannotDecrement">
+    -1
+  </button>
+
+  <button class="btn"
+          (click)="resetCounter()"
+          [disabled]="cannotDecrement">
+    =0
+  </button>
+</div>
+
+<div class="counter">
+  Счетчик: {{counter}}
+</div>
+
+<div class="update-at"
+     *ngIf="this.updateAt">
+  {{this.updateAt | date: 'HH:mm:ss - dd.mm.yyyy'}}
+</div>
