@@ -22,6 +22,6 @@
 </div>
 
 <div class="update-at"
-     *ngIf="this.updateAt">
-  {{this.updateAt | date: 'HH:mm:ss - dd.mm.yyyy'}}
+     *ngIf="updatedAt$ | async">
+  {{updatedAt$ | async | date: 'HH:mm:ss - dd.mm.yyyy'}}
 </div>
