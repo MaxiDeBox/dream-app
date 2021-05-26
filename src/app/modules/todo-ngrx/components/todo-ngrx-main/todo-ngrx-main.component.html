@@ -6,19 +6,19 @@
 
   <button class="btn"
           (click)="decrement()"
-          [disabled]="cannotDecrement">
+          [disabled]="cannotDecrement$ | async">
     -1
   </button>
 
   <button class="btn"
           (click)="resetCounter()"
-          [disabled]="cannotDecrement">
+          [disabled]="cannotDecrement$ | async">
     =0
   </button>
 </div>
 
 <div class="counter">
-  Счетчик: {{counter}}
+  Счетчик: {{count$ | async}}
 </div>
 
 <div class="update-at"

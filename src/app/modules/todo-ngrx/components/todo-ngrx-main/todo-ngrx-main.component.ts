@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { clear, countSelector, decriment, increment } from '../../../../store-ngrx/reducers/counter';
+import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-ngrx-main',
@@ -7,27 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoNgrxMainComponent {
 
-  public counter = 0;
   public updateAt?: number;
 
-  get cannotDecrement(): boolean {
-    return this.counter <= 0;
-  }
+  count$ = this.store.select(countSelector);
+  cannotDecrement$ = this.count$.pipe(map( count => count <= 0));
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   increment() {
     this.updateAt = Date.now();
-    this.counter++;
+    this.store.dispatch(increment())
   }
 
   decrement() {
     this.updateAt = Date.now();
-    this.counter--;
+    this.store.dispatch(decriment())
   }
 
   resetCounter() {
     this.updateAt = Date.now();
-    this.counter = 0;
+    this.store.dispatch(clear());
   }
 }
