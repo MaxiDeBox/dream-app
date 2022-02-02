@@ -1,15 +1,20 @@
 <section class="wrapper">
   <header class="header">
-    <h1 routerLink='/'>Dream App</h1>
+    <h1 routerLink='/' class="logo">Dream App</h1>
   </header>
 
   <main class="body">
-    <p>
-      <a routerLink='/gallery'>Галлерея</a>
-    </p>
-    <p>
-      <a routerLink='/todo-ngrx'>TODO NgRx</a>
-    </p>
+    <ul class="navigation">
+      <li>
+        <a class="navigation-item" routerLink='/gallery'>Галлерея</a>
+      </li>
+      <li>
+        <a class="navigation-item" routerLink='/todo-ngrx'>NgRx Counter</a>
+      </li>
+      <li>
+        <a class="navigation-item" routerLink='/dynamic-form'>Динамические поля формы</a>
+      </li>
+    </ul>
   </main>
 
   <footer>

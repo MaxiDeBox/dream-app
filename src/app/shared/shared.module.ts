@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DragDropDirective } from './directives/drag-drop.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExapmleBoldDirective } from './directives/exapmle-bold.directive';
 
 const declarations: any[] = [
   DragDropDirective,
-  ExapmleBoldDirective
+  ExapmleBoldDirective,
 ];
 
 @NgModule({
@@ -19,9 +19,11 @@ const declarations: any[] = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     FormsModule,
+    ReactiveFormsModule,
     ...declarations
   ],
   entryComponents: []

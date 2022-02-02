@@ -1,27 +1,39 @@
-<div class="btns">
-  <button class="btn"
-          (click)="increment()">
-    +1
-  </button>
+<section class="wrapper">
+  <header class="header">
+    <h1 routerLink='/'>Dream App</h1>
+  </header>
 
-  <button class="btn"
-          (click)="decrement()"
-          [disabled]="cannotDecrement$ | async">
-    -1
-  </button>
+  <main class="body">
+    <article class="gallery">
+      <h2 class="gallery__title">NgRx Counter</h2>
+      <div class="btns">
+        <button class="btn"
+                (click)="increment()">
+          +1
+        </button>
 
-  <button class="btn"
-          (click)="resetCounter()"
-          [disabled]="cannotDecrement$ | async">
-    =0
-  </button>
-</div>
+        <button class="btn"
+                (click)="decrement()"
+                [disabled]="cannotDecrement$ | async">
+          -1
+        </button>
 
-<div class="counter">
-  Счетчик: {{count$ | async}}
-</div>
+        <button class="btn"
+                (click)="resetCounter()"
+                [disabled]="cannotDecrement$ | async">
+          =0
+        </button>
+      </div>
 
-<div class="update-at"
-     *ngIf="updatedAt$ | async">
-  {{updatedAt$ | async | date: 'HH:mm:ss - dd.mm.yyyy'}}
-</div>
+      <div class="counter">
+        Счетчик: {{count$ | async}}
+      </div>
+
+      <div class="update-at"
+           *ngIf="updatedAt$ | async">
+        {{updatedAt$ | async | date: 'HH:mm:ss - dd.mm.yyyy'}}
+      </div>
+    </article>
+  </main>
+
+</section>
