@@ -1,0 +1,15 @@
+<div style="display: flex;">
+  <div>
+    <ng-content></ng-content>
+  </div>
+  <div style="margin-left: auto;">
+    <ul class="section-list">
+      <li class="section-tab"
+          *ngFor="let tab of tabs"
+          (click)="selectTab(tab)"
+          [class.active]="tab.active">
+        <a href="#">{{tab.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

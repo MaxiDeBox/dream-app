@@ -1,0 +1,26 @@
+.tab-close {
+  color: gray;
+  text-align: right;
+  cursor: pointer;
+}
+
+.section-list {
+  max-width: 68px;
+  background: #fff;
+
+  .section-tab {
+    list-style: none;
+    display: inline-block;
+    -webkit-writing-mode: vertical-rl;
+    /* old Win safari */
+    writing-mode: vertical-rl; /* FF */
+    writing-mode: tb-rl;
+    transform: scale(-1, -1);
+    white-space: nowrap;
+    a {
+      display: block;
+      padding: 16px 20px;
+      transform: rotate(180deg);
+    }
+  }
+}
