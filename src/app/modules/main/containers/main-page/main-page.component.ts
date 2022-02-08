@@ -18,8 +18,7 @@ export class MainPageComponent implements OnInit {
 
   selectedTab!: string;
 
-  constructor(private exapmleSrv: ExampleService,
-              public tabService: TabsService) { }
+  constructor(private exapmleSrv: ExampleService) { }
 
   ngOnInit(): void {
     this.exapmleSrv.getUsersList().subscribe((response) => {
@@ -55,12 +54,8 @@ export class MainPageComponent implements OnInit {
         return { brand: car.brand, model: car.model, color: '#ffffff' };
       }))
     ).subscribe((response) => {
-      console.log(response);
+      //console.log(response);
     });
-  }
-
-  activeTab(tab: string) {
-    this.tabService.$activeTab.next(tab);
   }
 }
 

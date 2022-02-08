@@ -14,21 +14,15 @@
       <li>
         <a class="navigation-item" routerLink='/dynamic-form'>Динамические поля формы</a>
       </li>
+      <li>
+        <a class="navigation-item" routerLink='/tabs'>Вертикальный таб</a>
+      </li>
     </ul>
 
     <hr>
 
-    <div style="background: #fff; width: 100%; height: 600px; color: #000;">
-      <button (click)="activeTab('tab1')">Open tab 2</button>
-
-      <app-tabs [selectedTab]="tabService.$activeTab.getValue() || 'tab0'">
-        <app-tab [tabTitle]="'Название 1'" [tabName]="'tab0'">
-          Tab 1 content
-        </app-tab>
-        <app-tab [tabTitle]="'Название 2'" [tabName]="'tab1'">
-          Tab 2 content
-        </app-tab>
-      </app-tabs>
+    <div style="background: #fff; width: 100%; height: 600px; color: #000; margin: 20px 0;">
+      <router-outlet></router-outlet>
     </div>
   </main>
 
