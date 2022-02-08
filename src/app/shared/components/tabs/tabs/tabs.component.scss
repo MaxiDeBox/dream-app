@@ -5,22 +5,32 @@
 }
 
 .section-list {
-  max-width: 68px;
+  max-width: 50px;
   background: #fff;
 
   .section-tab {
     list-style: none;
-    display: inline-block;
+    display: flex;
     -webkit-writing-mode: vertical-rl;
     /* old Win safari */
     writing-mode: vertical-rl; /* FF */
     writing-mode: tb-rl;
     transform: scale(-1, -1);
     white-space: nowrap;
+
+    background: #FFFFFF;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+
     a {
+      font-size: 14px;
       display: block;
-      padding: 16px 20px;
+      padding: 14px 14px;
       transform: rotate(180deg);
     }
+  }
+
+  .active {
+    background: #E6E9FE;
   }
 }

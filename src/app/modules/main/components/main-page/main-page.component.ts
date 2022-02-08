@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExampleService } from '../../../../core/backend/example/example.service';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TabsService } from '../../../../shared/components/tabs/services/tabs.service';
 
 @Component({
   selector: 'app-main-page',
@@ -15,7 +16,10 @@ export class MainPageComponent implements OnInit {
 
   public userAsync: any;
 
-  constructor(private exapmleSrv: ExampleService) { }
+  selectedTab!: string;
+
+  constructor(private exapmleSrv: ExampleService,
+              public tabService: TabsService) { }
 
   ngOnInit(): void {
     this.exapmleSrv.getUsersList().subscribe((response) => {
@@ -53,6 +57,10 @@ export class MainPageComponent implements OnInit {
     ).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  activeTab(tab: string) {
+    this.tabService.$activeTab.next(tab);
   }
 }
 

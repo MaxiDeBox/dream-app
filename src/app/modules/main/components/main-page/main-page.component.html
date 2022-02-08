@@ -19,11 +19,13 @@
     <hr>
 
     <div style="background: #fff; width: 100%; height: 600px; color: #000;">
-      <app-tabs>
-        <app-tab [tabTitle]="'Название '">
+      <button (click)="activeTab('tab1')">Open tab 2</button>
+
+      <app-tabs [selectedTab]="tabService.$activeTab.getValue() || 'tab0'">
+        <app-tab [tabTitle]="'Название 1'" [tabName]="'tab0'">
           Tab 1 content
         </app-tab>
-        <app-tab [tabTitle]="'Tab 2'">
+        <app-tab [tabTitle]="'Название 2'" [tabName]="'tab1'">
           Tab 2 content
         </app-tab>
       </app-tabs>

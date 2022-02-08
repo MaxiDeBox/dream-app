@@ -8,4 +8,5 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TabComponent {
   @Input('tabTitle') title!: string;
   @Input() active = false;
+  @Input() tabName!: string;
 }
