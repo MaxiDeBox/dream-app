@@ -1,1 +1,38 @@
-<router-outlet></router-outlet>
+<section class="wrapper">
+  <header class="header">
+    <h1 routerLink='/' class="logo">Dream App</h1>
+  </header>
+
+  <main class="body">
+    <mat-drawer-container class="darwer-container">
+      <mat-drawer mode="side" opened>
+        <div class="side-navigation">
+          <h3>Меню</h3>
+          <ul class="navigation">
+            <li>
+              <a class="navigation-item" routerLink='/gallery'>Галлерея</a>
+            </li>
+            <li>
+              <a class="navigation-item" routerLink='/todo-ngrx'>NgRx Counter</a>
+            </li>
+            <li>
+              <a class="navigation-item" routerLink='/dynamic-form'>Динамические поля формы</a>
+            </li>
+            <li>
+              <a class="navigation-item" routerLink='/tabs'>Вертикальный таб</a>
+            </li>
+          </ul>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content>
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </main>
+
+  <footer>
+    Simle text
+  </footer>
+</section>

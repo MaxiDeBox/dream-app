@@ -5,6 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExapmleBoldDirective } from './directives/exapmle-bold.directive';
 import { TabsComponent } from './components/tabs/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab/tab.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const declarations: any[] = [
   DragDropDirective,
@@ -23,6 +28,11 @@ const declarations: any[] = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [
     FormsModule,
@@ -30,6 +40,11 @@ const declarations: any[] = [
     ...declarations,
     TabsComponent,
     TabComponent,
+    MatSidenavModule,
+    MatInputModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatIconModule
   ],
   entryComponents: []
 })

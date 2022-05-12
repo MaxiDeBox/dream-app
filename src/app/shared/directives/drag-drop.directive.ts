@@ -1,10 +1,6 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Output} from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
-export interface FileHandle {
-  file: File;
-  url: SafeUrl;
-}
+import { DomSanitizer } from '@angular/platform-browser';
+import { FileHandle } from './file-handle.interface';
 
 @Directive({
   selector: '[appDragDrop]'
@@ -36,7 +32,7 @@ export class DragDropDirective {
 
     const files: FileHandle[] = [];
 
-    for (let i = 0; i < ($event as any).dataTransfer.files.length; i++) {
+    for(let i = 0; i < ($event as any).dataTransfer.files.length; i++) {
       const file = ($event as any).dataTransfer.files[i];
       const url = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file));
       files.push({ file, url });

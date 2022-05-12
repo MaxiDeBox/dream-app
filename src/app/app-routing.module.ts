@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DynamicFormRoutingModule } from './modules/dynamic-form/dynamic-form-routing.module';
-import { DynamicFormModule } from './modules/dynamic-form/dynamic-form.module';
 
 const routes: Routes = [
   {

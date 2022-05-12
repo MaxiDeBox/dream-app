@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryInterface } from '../../../../core/backend/gallery/gallery.interface';
 import { GalleryService } from '../../../../core/backend/gallery/gallery.service';
-import { FileHandle } from '../../../../shared/directives/drag-drop.directive';
+import { FileHandle } from '../../../../shared/directives/file-handle.interface';
 
 @Component({
   selector: 'app-gallery',

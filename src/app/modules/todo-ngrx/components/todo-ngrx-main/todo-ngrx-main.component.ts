@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { clear, countSelector, decriment, increment, updatedAtSelector } from '../../../../store-ngrx/reducers/counter';
-import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-ngrx-main',

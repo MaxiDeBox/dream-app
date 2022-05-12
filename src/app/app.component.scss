@@ -1,0 +1,74 @@
+@mixin padding-15 {
+  padding: 15px 15px;
+}
+
+/* ШАПКА */
+.header {
+  @include padding-15;
+
+  .logo {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.logo {
+  cursor: pointer;
+}
+
+/* КОНЕЦ ШАПКА */
+
+/* ТЕЛО */
+.body {
+  position: relative;
+}
+
+.content {
+  padding: 20px 0;
+  min-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  height: 100%;
+
+}
+
+/* ПОДВАЛ */
+footer {
+  @include padding-15;
+  max-height: 38px;
+  display: flex;
+  align-items: center;
+}
+/* КОНЕЦ ПОДВАЛ */
+
+a {
+  color: #ffffff;
+}
+
+.side-navigation {
+  h3 {
+    padding: 10px 15px;
+    margin: 0;
+  }
+
+  .navigation {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      box-sizing: border-box;
+    }
+
+    .navigation-item {
+      padding: 10px 15px;
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        background-color: #828282;
+      }
+    }
+  }
+}
