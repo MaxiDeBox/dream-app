@@ -70,7 +70,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "dream-app:build",
-            "proxyConfig": "proxy.config.js"
+            "proxyConfig": "proxy.config.js",
+            "port": 4300
           },
           "configurations": {
             "production": {

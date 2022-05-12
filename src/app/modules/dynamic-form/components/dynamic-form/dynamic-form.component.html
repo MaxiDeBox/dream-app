@@ -1,47 +1,47 @@
 <article class="gallery">
   <h2 class="gallery__title">Динамические поля формы</h2>
+  <div class="flex w-full justify-between">
+    <div class="my-form mr-10 w-1/2">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput name="name" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div>
+          Skills:
+          <div formArrayName="skills">
+            <div *ngFor="let skill of skills.controls; let i=index">
+              <div [formGroupName]="i" class="mb-4">
+                <div class="flex">
+                  <mat-form-field class="mr-4">
+                    <mat-label>{{i}}. skill</mat-label>
+                    <input matInput formControlName="skill">
+                  </mat-form-field>
 
-  <div class="my-form">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Name</mat-label>
-          <input matInput name="name" formControlName="name">
-        </mat-form-field>
-      </div>
-      <div>
-        Skills:
-        <div formArrayName="skills">
-          <div *ngFor="let skill of skills.controls; let i=index">
-            <div [formGroupName]="i">
+                  <mat-form-field class="mr-2">
+                    <mat-label>Exp</mat-label>
+                    <input matInput formControlName="exp">
+                  </mat-form-field>
 
-              <mat-form-field class="example-full-width">
-                <mat-label>{{i}}. skill name</mat-label>
-                <input matInput formControlName="skill">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <mat-label>Exp</mat-label>
-                <input matInput formControlName="exp">
-              </mat-form-field>
-
-              <button mat-flat-button color="primary" (click)="removeSkill(i)">Delete</button>
-
-              <mat-divider></mat-divider>
+                  <button mat-icon-button>
+                    <mat-icon (click)="removeSkill(i)">delete</mat-icon>
+                  </button>
+                </div>
+                <mat-divider></mat-divider>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <button mat-flat-button color="primary" type="submit">Submit</button>
-      </div>
-    </form>
-
-    <div>
-      <button mat-flat-button color="primary" (click)="addSkill()">Add new</button>
+        <div>
+          <button mat-flat-button color="primary" class="mr-4" (click)="addSkill()">Add new</button>
+          <button mat-flat-button color="primary" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
 
-    <div style="background: #fff; padding: 10px; color: #000; min-height: 200px;">
+    <div class="preview w-1/3">
       <pre><code>{{ this.myForm.value | json }}</code></pre>
     </div>
   </div>

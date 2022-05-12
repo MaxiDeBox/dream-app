@@ -1,18 +1,18 @@
 <article class="gallery">
   <h2 class="gallery__title">NgRx Counter</h2>
-  <div class="btns">
-    <button class="btn"
+  <div class="flex mb-10">
+    <button mat-flat-button color="primary" class="mr-4"
             (click)="increment()">
       +1
     </button>
 
-    <button class="btn"
+    <button mat-flat-button color="primary" class="mr-4"
             (click)="decrement()"
             [disabled]="cannotDecrement$ | async">
       -1
     </button>
 
-    <button class="btn"
+    <button mat-flat-button color="primary"
             (click)="resetCounter()"
             [disabled]="cannotDecrement$ | async">
       =0

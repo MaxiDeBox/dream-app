@@ -1,4 +1,7 @@
 @import "../fonts/Gilroy/stylesheet";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
