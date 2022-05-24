@@ -21,12 +21,14 @@
     background: #FFFFFF;
     border: 1px solid #828282;
     box-sizing: border-box;
+    cursor: pointer;
 
     a {
       font-size: 14px;
       display: block;
       padding: 14px 14px;
       transform: rotate(180deg);
+      color: #333333;
     }
   }
 
